@@ -36,6 +36,7 @@ Number() 함수를 이용하였을때 문자열은 NaN(Not a Number)이 출력�
 Nan의 특징
 1.표현 불가능한 수치형 결과를 나타내는 값.
 2.자기 자신과 일치하지 않는 유일한 값.
+!(https://user-images.githubusercontent.com/79895970/112427092-61ba6a00-8d7c-11eb-8e83-23d869908e48.PNG)
 ## [03월16일]
  > 오늘 배운 내용 요약<br />
  > 여러줄 요약<br>
