@@ -44,6 +44,7 @@ Boolean() 함수<br>
 Boolean() 함수를 사용하면 5개의 요소는 false로 변환<br>
 0,NaN,"",null,undefined<br>
 ![5](https://user-images.githubusercontent.com/79895970/112429925-c11a7900-8d80-11eb-9ef0-2b2ea8dff065.PNG)
+
 !연산자를 두번 사용하면 Boolean()함수를 사용하는것과 같은 결과가 나온다.<br>
 일치 연산자 : 두 자료의 "자료형"을 비교하는 연산자<br>
 ![6](https://user-images.githubusercontent.com/79895970/112431488-f3c57100-8d82-11eb-9b22-31b12c9d543c.PNG)
