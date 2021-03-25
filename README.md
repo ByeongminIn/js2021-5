@@ -6,6 +6,10 @@
 2.이스케이프 문자<br>
 3.비교 연산자<br>
 4.강제 자료형 변환<br>
+5.Boolean()함수<br>
+6.일치연산자<br>
+7.상수<br>
+8.if,if else 조건문<br>
 ### 여러줄 요약
 피제수: 나뉘어지는 수<br>
 제수: 나누는 수<br>
@@ -34,8 +38,38 @@ Number() 함수를 이용하였을때 문자열은 NaN(Not a Number)이 출력�
 Nan의 특징<br>
 1.표현 불가능한 수치형 결과를 나타내는 값.<br>
 2.자기 자신과 일치하지 않는 유일한 값.<br>
-
 ![3](https://user-images.githubusercontent.com/79895970/112427092-61ba6a00-8d7c-11eb-8e83-23d869908e48.PNG)
+
+Boolean() 함수<br>
+Boolean() 함수를 사용하면 5개의 요소는 false로 변환<br>
+0,NaN,"",null,undefined<br>
+![5](https://user-images.githubusercontent.com/79895970/112429925-c11a7900-8d80-11eb-9ef0-2b2ea8dff065.PNG)
+!연산자를 두번 사용하면 Boolean()함수를 사용하는것과 같은 결과가 나온다.<br>
+일치 연산자 : 두 자료의 "자료형"을 비교하는 연산자<br>
+![6](https://user-images.githubusercontent.com/79895970/112431488-f3c57100-8d82-11eb-9b22-31b12c9d543c.PNG)
+
+ex)${52 == "52"} = true<br>
+   ${52 === "52"} = false<br>
+첫번째는 숫자가 같아서 true가 나왔지만 두번째에서는 52가 Number형 "52"가 string형이기때문에 두 자료형이 달라 false가 반환 되었다.<br>
+
+상수 : '항상 같은 수' 라는 의미,변수와 반대되는 개념<br>
+상수 선언은 const를 사용.<br>
+
+if 조건문 : 불 표현식이 true이면 문장을 실행,false이면 문장을 무시함.<br>
+if(불 표현식){
+
+}<br>
+![7](https://user-images.githubusercontent.com/79895970/112432762-ad711180-8d84-11eb-810d-43a0f59738aa.PNG)
+
+if else 조건문 : 불 표현식이 true이면 true 문장을 실행하고,fales이면 false 문장을 실행하는 조건문이다.<br>
+if(불 표현식){
+    true 문장
+}<br>
+else{
+    false 문장
+}<br>
+
+![8](https://user-images.githubusercontent.com/79895970/112433204-430ca100-8d85-11eb-8e51-a5a09fb2d2e4.PNG)
 ## [03월16일]
  > 오늘 배운 내용 요약<br />
  > 여러줄 요약<br>
