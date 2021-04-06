@@ -9,24 +9,92 @@
  > + 반복문
 ### 여러줄 요약
 1.  중첩 조건문
+    + 기본문법
+    ```
+    if (불 표현식){
+        if (불 표현식){
+            문장;
+        } else {
+            문장;
+        }
+    } else {
+        if (불 표현식) {
+            문장;
+        } else {
+            문장;
+        }
+    }
+    ```
+    + if else if 조건문
+    ```
+        + if(<불 표현식>) {   
 
+        } else if (<불 표현식>) {
+
+        } else if (<불 표현식>) {
+
+        } else {
+    
+        }
+    ```
 2.  switch 조건문
     + 기본 문법
     ```
-    switch(){
-        case 0;
+    switch(<비교할 값>){
+        case <값>;
+        <문장>
         braek;
-        case 1;
+        case <값>;
+        <문장>
+        break;
+        default;
+        <문장>
         break;
     }
     ```
-
+    ![1](https://user-images.githubusercontent.com/79895970/113305332-e178a380-933d-11eb-822a-cf61a11bdc99.PNG)
     +  break 키워드를 사용하지 않는 switch 조건문
+    ```
+    let date = new Date();
+
+    switch ( date.getMonth() + 1 ) {
+     case 12:
+     case 1:
+     case 2:
+     console.log("겨울");
+     break;
+     case 3:
+     case 4:
+     case 5:
+     console.log("봄");
+     break;
+     case 6:
+     case 7:
+     case 8:
+     console.log("여름");
+     break;
+     case 9:
+     case 10:
+     case 11:
+     console.log("가을");
+     break;
+     default:
+     console.log("???");
+     break;
+    }
+    ```
 3. 삼항연산자
+    + 기본 문법
+    ```
+    <불 표현식> ? <참> : <거짓>
+    ```
+
 4. 짧은 초기화 조건문
     + ||연산자를 불이 아닌 자료에 사용할 경우
-        + 
+        + A||B에서 A가 참이라면 A로 대치
+        + A||B에서 A가 거짓이라면 B로 대치
 5. 웹 브라우저에서 작동하는 자바스크립트는 prompt() 이름의 함수를 받음
+[prompt()의 예시파일](./c3-18.js)
 6. 배열
     + 여러개의 자료를 한꺼번에 다룰 수 있는 자료형
     + 대괄호 내부의 각 자료는 쉼표로 구분
