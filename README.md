@@ -9,7 +9,7 @@
  > + var
 ### 오늘 배운 내용 요약
 1. for in 반복문,for of 반복문
-    + [설명](####for-in-반복문for-of-반복문)
+    + [설명](#for-in-반복문for-of-반복문)
     + for in 반복문
         ```
         let foo = [10,20,30,40,50];
