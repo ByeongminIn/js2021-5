@@ -1,5 +1,213 @@
 # 인병민 [201840225]
 
+## [04월 06일]
+ > + for문
+ > + break 키워드
+ > + 배열
+ > + continue 키워드
+ > + scope
+ > + var
+### 오늘 배운 내용 요약
+1. for in 반복문,for of 반복문
+    + [설명](####for-in-반복문for-of-반복문)
+    + for in 반복문
+        ```
+        let foo = [10,20,30,40,50];
+
+        for (let i in foo){
+        console.log(`${i}번째 요소는 ${foo[i]}이다.`)
+        }
+        ```
+        + 결과값
+
+        ![1](https://user-images.githubusercontent.com/79895970/114254293-65d7c000-99e9-11eb-9b75-afdbe8aa7964.PNG)
+    + for of 반복문
+        ```
+        let foo = [10,20,30,40,50];
+
+        for (let item of foo){
+        console.log(item)
+        }
+        ```
+        + 결과값
+
+        ![2](https://user-images.githubusercontent.com/79895970/114254402-1f369580-99ea-11eb-8548-144b32f18946.PNG)
+    + [for문 연습용 별 피라미드 만들기](./ch04-7-8.js)
+2. break 카워드
+    + 반복문을 벗어날 때 사용
+    + 무한 반복문은 내부에서 break 키워드를 사용해야 벗어날 수 있음
+        + 예제
+        ```    
+        i=0;
+        let foo = [2,3,5,4,10];
+        while (true){
+            if (foo[i] %2 ==0){
+                bar = foo[i];
+                break;
+            }
+            console.log(i);
+            i = i+1; // i++ , i+=1;
+        }
+        console.log(`처음 발견한 짝수는 ${bar}입니다.`);
+        ```
+        + 결과값
+
+        ![3](https://user-images.githubusercontent.com/79895970/114258203-edc8c480-99ff-11eb-8995-bf0356b7eb4a.PNG)<br>
+        + break는 상위 키워드에서 빠져나오는것이기 때문에 if에서 빠져나오는것이 아닌 while을 빠져나온다.
+3. 배열
+    + 기본적인 설명은 3월30일 [배열](####배열)에 기입해두었다.
+        + 배열 선언
+        ```
+        // 선언 및 초기화
+        let foo = new Array(); 
+        let bar = [];
+        foo = [1,10,오렌지]
+        bar = [1,10,오렌지]
+        
+        // 선언과 동시에 초기화
+        let foo = new Array(1,10,오렌지);
+        let bar = [1,10,오렌지];
+        ```
+        기본적인 선언과 초기화는 이러한 방식으로 진행된다.
+        + 배열의 길이를 구하는 명령어
+        ```
+        console.log( foo.length );
+        ```
+        + push 함수
+
+            + 배열에 값을 추가하는 함수
+            ```
+            bar = [0];
+            console.log("\n push");
+            bar.push(1,2,3);
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![4](https://user-images.githubusercontent.com/79895970/114263868-e535b580-9a22-11eb-90a4-045068d0047e.PNG)
+
+            bar 배열에 1,2,3이 추가된 모습
+        + pop 함수
+
+            + 배열의 끝값을 제거하는 함수
+            ```
+            console.log("\n pop");
+            bar.pop();
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![5](https://user-images.githubusercontent.com/79895970/114264009-655c1b00-9a23-11eb-9d73-22cc64897098.PNG)
+
+            3이 사라진 모습.
+        + shift 함수
+            + 배열 첫번째 값을 제거하고 반환하는 함수
+            ```
+            console.log("\n shift");
+            bar.shift();
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![7](https://user-images.githubusercontent.com/79895970/114266016-ea006680-9a2e-11eb-8c86-9e9158ad2740.png)
+            
+            0이사라지고 반환된 모습.
+        + concat 함수
+            + 두 배열을 합쳐주는 함수
+            ```
+            console.log("\n concat");
+            let dgx = [1,2];
+            bar = bar.concat(dgx);
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![8](https://user-images.githubusercontent.com/79895970/114266017-ea98fd00-9a2e-11eb-9224-ba43dfef8232.png)
+
+            bar 배열 값에 dgx 배열이 붙은모습.
+        + reverse 함수
+            + 배열을 역순으로 재배치하는 함수
+            ```
+            console.log("\n reverse");
+            bar.reverse();
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![9](https://user-images.githubusercontent.com/79895970/114266018-ea98fd00-9a2e-11eb-87fe-398f7b61ca30.png)            
+
+            concat에서 배열의 위치랑 반대된 모습
+        + sort 함수
+            + 배열을 정렬해주는 함수
+            ```
+            console.log("\n sort");
+            bar.sort();
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![10](https://user-images.githubusercontent.com/79895970/114266020-eb319380-9a2e-11eb-98aa-a1340c1dc6c8.png)
+            
+            reverse결과값에서 정리된 모습.
+        + slice 함수
+            + 시작 지점부터 끝지점 전까지의 인덱스 값을 반환시키는 함수
+            ```
+            console.log("\n slice");
+            console.log(bar);
+            console.log( bar.slice(1,3));
+            ```
+            + 결과값
+            
+            ![11](https://user-images.githubusercontent.com/79895970/114266021-eb319380-9a2e-11eb-9b18-c137e0f93431.png)
+
+            시작 지점 1부터 3전까지의 인덱스 값이 반환 됐다.
+        + splice 함수
+            + 원하는 위치에 요소를 추가하거나 삭제하는 함수
+            + splice(시작지점,삭제갯수,추가할내용)
+            ```
+            console.log("\n splice");
+            let dfs = [];
+            dfs = bar.splice(2,2,100,0.5,"문자");
+            console.log(bar);
+            console.log(dfs);
+            ```
+            + 결과값
+
+            ![13](https://user-images.githubusercontent.com/79895970/114266022-ebca2a00-9a2e-11eb-8ab5-66d93db976fd.png)
+            
+            bar에 2번인덱스부터 2개의 배열이 사라지고 내용이 추가됐다.<br>
+            dfs에는 bar의 삭제된 값이 저장됐다.
+        + join 함수
+            + 배열값들 사이에 원하는 문자를 삽입하는 함수
+            ```
+            console.log("\n join");
+            bar = bar.join("!");
+            console.log(bar);
+            ```
+            + 결과값
+
+            ![14](https://user-images.githubusercontent.com/79895970/114266024-ebca2a00-9a2e-11eb-86ab-a3bb175a04b9.png)
+
+            배열값 사이에 !가 들어갔다.
+4. continue
+    + 반복문 내부에서 현재 반복을 멈추고 다음 반복을 진행함
+    + [예제](./ch04-10.js)
+        + 결과값
+
+        ![1](https://user-images.githubusercontent.com/79895970/114266699-9b54cb80-9a32-11eb-822e-3fc53077901f.PNG)
+
+5. <b>스코프(scope)</b>
+    + 변수를 사용할 수 있는 범위 
+    ```
+    {
+
+    }
+    ```
+    + 스코프 내에서 선언한 변수는 스코프 내에서만 사용 가능하다
+6. <b>var 키워드</b>
+    + var 키워드 : 익스플로러
+        +var 키워드로 생성한 변수는 모든 곳에서 사용
+    + let : 자바스크립트 최근 html에서 사용
 ## [03월 30일]
 ### 오늘 배운 내용 요약
  > + 조건문
@@ -9,6 +217,8 @@
  > + 반복문
 ### 여러줄 요약
 1.  중첩 조건문
+
+
     + 기본문법
     ```
     if (불 표현식){
@@ -95,7 +305,7 @@
         + A||B에서 A가 거짓이라면 B로 대치
 5. 웹 브라우저에서 작동하는 자바스크립트는 prompt() 이름의 함수를 받음
 [prompt()의 예시파일](./c3-18.js)
-6. 배열
+6. #### 배열
     + 여러개의 자료를 한꺼번에 다룰 수 있는 자료형
     + 대괄호 내부의 각 자료는 쉼표로 구분
     + 배열에는 여러 자료형이 섞여 있을수 있음
@@ -119,7 +329,7 @@
     + 초기화식=>조건식=>실행문장=>증감식 이후 조건식=>실행문장=>증감식을 조건식이 거짓일때까지 반복.
     + 역 for 반복문
         + 증가하는 for문과 반대로 최댓값으로 시작해 점점 감소하는 방식.
-    + for in 반복문,for of 반복문
+    + #### for in 반복문,for of 반복문
         + 기본 문법
         ```
         for(let 변수 (in or of) 리스트){
