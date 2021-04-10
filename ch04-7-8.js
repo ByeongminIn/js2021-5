@@ -49,13 +49,13 @@ for(let i=0;i<10;i++){
     output+="\n";
 }
 for(let i=0;i<10;i++){
-    for (let j =10;j<10-i;j--){
+    for (let j =0;j<i+2;j++){
         output += " ";
     }
-    for(let j=10;j>i;j--){
+    for(let j=9;j>i;j--){
         output += "*";
     }
-    for(let j=9;j>i;j--){
+    for(let j=8;j>i;j--){
         output+="*";
     }
     output+="\n";
