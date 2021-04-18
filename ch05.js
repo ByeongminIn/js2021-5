@@ -95,10 +95,10 @@ console.log(Number(inputA));
 console.log(Number(inputB));
 console.log(Number(inputC)); */
 
-setTimeout(() => {
+/*setTimeout(() => {
    console.log("1초 경과!!!"); 
 }, 1000);
 
 setInterval(() => {
     console.log("인터벌 1초 경과!!!");
-}, 1000);
+}, 1000);*/
