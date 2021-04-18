@@ -1,4 +1,244 @@
 # 인병민 [201840225]
+## [04월 13일]
+### 오늘 배운 내용 요약
+ > + 익명 함수
+ > + 선언적 함수
+ > + 화살표 함수
+ > + 함수의 기본 형태 
+ > + 콜백 함수
+ > + 표준 내장 함수
+ > + 
+### 여러줄요약
+1. 익명 함수
+    + 이름을 붙이지 않고 함수 생성
+    + 함수를 호출하면 함수 내부의 코드 덩어리가 모두 실행
+    + 주로 일회성으로 사용함<br>
+
+        <b>기본형</b>
+        ```
+        let <함수 이름> = function () { 
+    
+         };
+        ```
+        + 예제
+        ```
+         let foo = function () {
+         console.log("첫번째 줄");
+         console.log("두번째 줄");
+         };
+ 
+         foo();
+         console.log(foo); 
+        ```
+        + 결과값
+
+        ![1](https://user-images.githubusercontent.com/79895970/115143160-a043fb80-a080-11eb-9caf-1901bd1954ea.PNG)
+2. 선언적 함수
+    + 이름이 있는 함수<br>
+
+        <b>기본형</b>
+        ```
+        fuction <함수 이름> () {
+
+        };
+        ```
+        + 예제
+        ```
+        function foo () {
+        console.log("첫번째 줄");
+        console.log("두번째 줄");
+        };
+
+        foo();
+        console.log(foo);
+        ```
+        + 결과값
+
+        ![1](https://user-images.githubusercontent.com/79895970/115143160-a043fb80-a080-11eb-9caf-1901bd1954ea.PNG)
+3. 화살표 함수
+    + 하나의 표현식을 리턴하는 함수를 만들 때는 중괄호 생략 가능<br>
+        <b>기본형</b>
+        ```
+        let 함수이름 = () => {
+
+         };
+        ```
+        + 예제
+        ```
+        let foo = () => {
+        console.log("첫번째 줄");
+        console.log("두번째 줄");
+        };
+
+        foo();
+        console.log(foo);
+        ```
+        + 결과값
+
+        ![1](https://user-images.githubusercontent.com/79895970/115143160-a043fb80-a080-11eb-9caf-1901bd1954ea.PNG)
+4. 함수의 기본 형태
+    + 기본 형태
+        ```
+        fuction<함수 이름>(<매개 변수>){
+            <함수 코드>
+            return <리턴 값>
+        }
+        ```
+        + 리턴값은 반드시 필요한것이 아님
+    + 예제
+        ```
+        function power(x){
+        return x*x;
+        };
+        
+        console.log(power(10));
+        console.log(power(20));
+        ``` 
+        + 결과값
+
+            ![2](https://user-images.githubusercontent.com/79895970/115143731-041bf380-a084-11eb-8767-5b391ab5f7dd.PNG)
+    + 예제2
+        ```
+         function foo(x) {
+        let bar = x * x;
+        return bar;
+        }
+
+        let foobar = foo(10);
+        console.log(foobar);            
+        ```           
+        + 결과값은 동일하나 함수를 사용하면 리턴으로 바로반환하는 것보다 변수에 반환값을 넣고 출력하는것이 가독성이 더 좋다.
+    + 매개 변수가 여러개인 함수
+        ```
+        let power = (x,y) => {
+        return x*y;
+        };
+        console.log(power(20,10));
+        console.log(power(30,20));
+        console.log(power(40,30));
+        ```
+        + 결과값
+
+            ![3](https://user-images.githubusercontent.com/79895970/115144270-c10f4f80-a086-11eb-9f23-00b24781ec70.PNG)
+    + 리턴 없는 함수
+        ```
+        function print(message) {
+        console.log(`"${message}"라고 말했습니다.`);
+        }
+        print("안녕하세요");
+        ```
+        + 결과값
+
+        ![4](https://user-images.githubusercontent.com/79895970/115144369-3aa73d80-a087-11eb-8a2c-47f4d9b932d7.PNG)
+    + 리턴하는 함수의 기본형태
+        + 기본형
+        ```
+        function(<매개 변수>,<매개 변수>) {
+            let output= <초깃값>;
+            // output 계산
+            return output;
+        }
+        ```
+        + 예제
+        ```
+        function sum (min,max) {
+            let output = 0;
+            for( let i = min; i<= max;i++){
+                output += i;
+            }
+            return output;
+        }        
+        ```
+        + 결과값
+
+            ![6](https://user-images.githubusercontent.com/79895970/115144571-565f1380-a088-11eb-8851-0657546224aa.png)
+    + 매개 변수를 입력하지 않고 함수 호출
+        + 예제
+            ```
+            function print(name,count) {
+            console.log(`${name}이/가 ${count}개 있습니다.`);
+            }
+            print("사과",10);
+            print("사과");
+            print();
+            ```
+            + 결과값
+
+            ![5](https://user-images.githubusercontent.com/79895970/115144715-23694f80-a089-11eb-99c3-4150e5776061.PNG)
+5. 콜백 함수
+    + 함수의 매개 변수로 전달되는 함수
+        + 예제
+        ```
+        function tenTimes(foo) {
+        for (let i = 0; i < 10; i++){
+            foo();
+        }
+        }
+
+        tenTimes( () => {
+            console.log("함수 호출");
+        })
+        ```
+        + 결과값
+
+        ![7](https://user-images.githubusercontent.com/79895970/115145915-1ea79a00-a08f-11eb-8fa6-8596e5421d8c.PNG)
+6. 표준 내장 함수
+    + 자바스크립트에서 기본적으로 지원하는 함수
+        + 숫자 변환 함수
+
+        함수|설명|
+        |:----|:----|
+        |parseInt()|문자열을 정수로 변환합니다.|
+        |parseFloat()|문자열을 실수로 변환합니다.|
+
+        + 예제
+            ```
+            let inputA = '52';
+            let inputB = '52.273';
+            let inputC = '1403동';
+
+            console.log(parseInt(inputA));
+            console.log(parseFloat(inputA));
+            console.log(parseInt(inputB));
+            console.log(parseFloat(inputB));
+            console.log(parseInt(inputC));
+
+            console.log(Number(inputA));
+            console.log(Number(inputB));
+            console.log(Number(inputC));
+            ```
+            + 결과값
+
+            ![8](https://user-images.githubusercontent.com/79895970/115146411-66c7bc00-a091-11eb-8b11-a14c8fe32416.PNG)
+        + paseint는 진수를 나타낼때에도 사용한다
+
+            ![10](https://user-images.githubusercontent.com/79895970/115146733-b8247b00-a092-11eb-9f63-f84c3a28318b.png)
+
+            + 11011을 2진수의 int값으로 정의하여서 결과값에 27이 반환된모습.
+        + 타이머 함수
+            + '특정 시간 후에'또는'특정 시간마다'어떤 일을 할 때 사용
+            + 시간은 밀리초로 지정,1초를 나타내려면 1000(밀리초)을 입력 
+
+            함수|설명|
+            |:-----|:-----|
+            setTimeout(함수,시간)|특정 시간 후에 함수를 실행합니다.|
+            setInterval(함수,시간)|특정 시간마다 함수를 실행합니다.|
+
+            + 예제
+                ```
+                setTimeout(() => {
+                console.log("1초 경과!!!"); 
+                }, 1000);
+
+                setInterval(() => {
+                    console.log("인터벌 1초 경과!!!");
+                }, 1000);
+                ```
+                 + 결과값
+
+                    ![11](https://user-images.githubusercontent.com/79895970/115146989-ebb3d500-a093-11eb-8d16-726c4b62fe2f.PNG)
+
+                    + 인터벌상태에서 종료는 Ctrl + C 를 누르면 종료됩니다.
 
 ## [04월 06일]
  > + for문

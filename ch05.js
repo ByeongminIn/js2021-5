@@ -1,11 +1,11 @@
 // code5-1 익명함수
-/*let foo = function () {
+/* let foo = function () {
     console.log("첫번째 줄");
     console.log("두번째 줄");
 };
 
 foo();
-console.log(foo);*/
+console.log(foo); */
 
 // code5-2 선언적 함수
 /* function foo () {
@@ -14,8 +14,8 @@ console.log(foo);*/
 };
 
 foo();
-console.log(foo); */
-
+console.log(foo);
+ */
 // code5-3 화살표 함수
 /* let foo = () => {
     console.log("첫번째 줄");
@@ -30,26 +30,39 @@ console.log(foo); */
     return x*x;
 };
 
-console.log(power(10)); */
+console.log(power(10));
+console.log(power(20)); */
 
-/* function foo(x) {
+/*  function foo(x) {
     let bar = x * x;
     return bar;
 }
 
 let foobar = foo(10);
-console.log(foo(10));
+console.log(foobar); */
 
-let power = (x) => {
-    x*x
+
+/* let power = (x,y) => {
+   return x*y;
 };
-console.log(power(20));*/
+console.log(power(20,10));
+console.log(power(30,20));
+console.log(power(40,30)); */
 
 
 /* function print(message) {
     console.log(`"${message}"라고 말했습니다.`);
 }
 print("안녕하세요"); */
+
+/* function sum (min,max) {
+    let output = 0;
+    for( let i = min; i<= max;i++){
+        output += i;
+    }
+    return output;
+}
+console.log(sum(1,100)); */
 
 /* function print(name="무명",count=1) {
     console.log(`${name}이/가 ${count}개 있습니다.`);
