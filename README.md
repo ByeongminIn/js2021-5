@@ -1,5 +1,74 @@
 # 인병민 [201840225]
-## [04월 13일]
+## [04월 27일]
+### 오늘 배운 내용 요약
+ > + 표준 내장 함수
+ > + 익명 함수와 선언적 함수의 생성 순서
+### 여러줄 요약
+1. 표준 내장 함수
+    + 기존에 이어서 진행 [설명](#표준-내장-함수)
+        + clearInterval 함수 
+            함수|설명|
+            |:----|:----|
+            clearInterval()|특정 시간마다 실행하던 함수 호출을 정지합니다.|
+
+            + 예제
+
+                ```
+                let foo = setInterval(() => {
+                console.log("출력합니다");},1000
+                );
+
+                setTimeout(()=>{
+                    clearInterval(foo);}
+                ,3000);
+                ```
+
+            + 결과값
+
+                ![2](https://user-images.githubusercontent.com/79895970/116190339-6c926100-a765-11eb-97f7-9771891f7e17.PNG)
+
+2. 익명 함수와 선언적 함수의 생성 순서
+    + 변수 덮어쓰기
+        + 예제
+            ```
+            let foo;
+            foo = 10;
+            foo = 20;
+            console.log(foo);
+            ```
+        + 결과값
+
+            ![3](https://user-images.githubusercontent.com/79895970/116191392-2b9b4c00-a767-11eb-86f9-e96729eef52b.PNG)
+        
+        foo에 20값을 넣으면서 10이 사라짐.
+    + 함수 덮어쓰기
+        + 예제
+            ```
+            let foo;
+            foo = () => {console.log("1st");}
+            foo = () => {console.log("2st");}
+            
+            foo();
+            ```
+        + 결과값
+
+            ![1](https://user-images.githubusercontent.com/79895970/116190804-3dc8ba80-a766-11eb-8e03-97c6387ab8e8.PNG)
+
+            1st가 아닌 2rd가 출력된 모습.
+
+        + 예제2
+            ```
+            foo = () => {console.log("1st");}
+            function foo() {console.log("2rd");}
+
+            foo();
+            ```
+        + 결과값
+
+            ![4](https://user-images.githubusercontent.com/79895970/116191727-ca27ad00-a767-11eb-9ba4-350646d4e518.PNG)
+        
+        익명함수가 선언적 함수를 덮어씀.
+    + 익명함수와 화살표 함수의 차이
 ### 오늘 배운 내용 요약
  > + 익명 함수
  > + 선언적 함수
@@ -181,7 +250,7 @@
         + 결과값
 
         ![7](https://user-images.githubusercontent.com/79895970/115145915-1ea79a00-a08f-11eb-8fa6-8596e5421d8c.PNG)
-6. 표준 내장 함수
+6. ##### 표준 내장 함수
     + 자바스크립트에서 기본적으로 지원하는 함수
         + 숫자 변환 함수
 

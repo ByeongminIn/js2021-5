@@ -95,10 +95,34 @@ console.log(Number(inputA));
 console.log(Number(inputB));
 console.log(Number(inputC)); */
 
-/*setTimeout(() => {
+/* setTimeout(() => {
    console.log("1초 경과!!!"); 
 }, 1000);
 
 setInterval(() => {
     console.log("인터벌 1초 경과!!!");
-}, 1000);*/
+}, 1000); */
+
+/* let foo = setInterval(() => {
+    console.log("출력합니다");},1000
+);
+
+setTimeout(()=>{
+    clearInterval(foo);}
+,3000); */
+
+/* let foo;
+foo = 10;
+foo = 20;
+console.log(foo); */
+
+/* let foo;
+foo = () => {console.log("1st");}
+foo = () => {console.log("2rd");}
+
+foo(); */
+
+/* foo = () => {console.log("1st");}
+function foo() {console.log("2rd");}
+
+foo(); */
