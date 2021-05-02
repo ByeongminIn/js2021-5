@@ -82,7 +82,7 @@
         })();
         ```
         + 결과
-            ![2](https://user-images.githubusercontent.com/79895970/116812954-597bf880-ab8c-11eb-8fed-46cb53ed9b3b.PNG)
+            ![2](https://user-images.githubusercontent.com/79895970/116812954-597bf880-ab8c-11eb-8fed-46cb53ed9b3b.PNG)<br>
             ![3](https://user-images.githubusercontent.com/79895970/116812956-5a148f00-ab8c-11eb-8302-9c41f3df4ec3.PNG)
         
         익명 함수의 this는 전역객체를 호출하였고 <br>화살표 함수는 상위 스코프의 this를 호출 하였다.
