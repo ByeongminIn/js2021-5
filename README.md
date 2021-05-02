@@ -88,7 +88,105 @@
         익명 함수의 this는 전역객체를 호출하였고 <br>화살표 함수는 상위 스코프의 this를 호출 하였다.
 3. 객체 기본
     + 배열
-        + 기본적인 설명은 3월30일 [배열](#배열)에 기입해두었다.
+        + 기본적인 설명은 3월30일 [배열](#배열)과 4월6일 [배열선언](#배열-선언) 기입해두었다.
+    + 객체
+        + 객체 선언
+            + 예제
+            ```
+            let foo = {
+            제품명: "건조 망고",
+            유형: "당절임",
+            원산지: "필리핀",
+            price : 1200
+            };
+
+            console.log(foo);
+            console.log(foo.제품명);
+            console.log(foo.price);
+            ```
+            + 결과값
+
+            ![4](https://user-images.githubusercontent.com/79895970/116813679-ec6a6200-ab8f-11eb-95ae-1263b753b1e7.PNG)
+
+            기본적인 출력은 console.log에 객체 이름을 입력하고<br>
+            특정 키값만 출력은 객체이름.키값으로 출력하면 된다.
+        + 객체와 반복문
+            + 예제
+            ```
+            let foo = {
+            제품명: "건조 망고",
+            유형: "당절임",
+            원산지: "필리핀",
+            price : 1200
+            };
+
+            for ( let key in foo){
+                console.log(`${key}:${foo[key]}`)
+            }
+            ```
+            + 결과값
+
+            ![5](https://user-images.githubusercontent.com/79895970/116813886-1a9c7180-ab91-11eb-8339-ff90e20b3962.PNG)
+
+            for in 반복문을 통해 객체의 내용을 출력하는 모습
+
+            + this 키워드를 이용한 메소드 사용
+            ```
+            let foo = {
+            name:"건조 망고",
+            price: 1200,
+            print: function() {console.log(`${this.name} - ${this.price}`);
+            }
+            };
+
+            foo.print();
+            ```
+            + 결과값
+
+            ![6](https://user-images.githubusercontent.com/79895970/116814275-09ecfb00-ab93-11eb-9f12-58d5e93b4d2c.PNG)
+            
+            화살표 함수는 사용이 불가능하다.<br>
+            화살표 함수에서의 this는 상위 스코프를 지정하기 때문에 undefined 출력.
+    + 생성자 함수와 프로토타입
+        + 객체 배열을 함수를 이용하여 출력
+            + 예제
+            ```
+            let product = [
+            {name: '사과', price: 1200},
+            {name: '배', price: 1500},
+            {name: '자두', price: 1000},
+            {name: '딸기', price: 2000},
+            {name: '바나나', price: 1500}
+            ];
+
+            function printProduct(product){
+                console.log(`${product.name} - ${product.price} `);
+            }
+
+            for ( let foo of product) {
+                printProduct(foo);
+            }
+            ```
+            + 결과값
+
+            ![7](https://user-images.githubusercontent.com/79895970/116814917-16268780-ab96-11eb-903d-2a3b0353160f.PNG)
+
+        + 생성자 함수
+            + 객체를 만드는 함수,대문자로 시작하는 이름 사용
+                + 예제
+                ```
+                function Product(name,price){
+                    this.name = name;
+                    this.price = price;
+                }
+                
+                let product = new Product("바나나",1200);
+                
+                console.log(product);
+                ```
+                + 결과값
+                
+                ![8](https://user-images.githubusercontent.com/79895970/116815174-589c9400-ab97-11eb-908d-2347d3401b4b.PNG)
 ### 오늘 배운 내용 요약
  > + 익명 함수
  > + 선언적 함수
@@ -382,9 +480,9 @@
 
         ![3](https://user-images.githubusercontent.com/79895970/114258203-edc8c480-99ff-11eb-8995-bf0356b7eb4a.PNG)<br>
         + break는 상위 키워드에서 빠져나오는것이기 때문에 if에서 빠져나오는것이 아닌 while을 빠져나온다.
-#### 3. 배열
+3. 배열
     + 기본적인 설명은 3월30일 [배열](#배열)에 기입해두었다.
-        + 배열 선언
+        + #### 배열 선언
         ```
         // 선언 및 초기화
         let foo = new Array(); 

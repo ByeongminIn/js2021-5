@@ -1,4 +1,4 @@
-// let foo = [];
+// let foo = ["사과","배","바나나","딸기"];
 
 // console.log(foo[0]);
 // console.log(foo[3]);
@@ -21,21 +21,34 @@ for ( let key in foo){
 /* let foo = {
     name:"건조 망고",
     price: 1200,
-    print function()
-} */
+    print: function() {console.log(`${this.name} - ${this.price}`);
+}
+};
 
-let product = [
-    {name: '사과',price: 1200},
-    {name: '배',price: 1500},
-    {name: '쟈두',price: 1000},
-    {name: '딸기',price: 2000},
-    {name: '바나나',price: 1500},
+foo.print();
+ */
+
+/* let product = [
+    {name: '사과', price: 1200},
+    {name: '배', price: 1500},
+    {name: '자두', price: 1000},
+    {name: '딸기', price: 2000},
+    {name: '바나나', price: 1500}
 ];
 
 function printProduct(product){
     console.log(`${product.name} - ${product.price}`);
 }
 
-for (let foo of product){
-printProduct(foo);
+for ( let foo of product) {
+    printProduct(foo);
+} */
+
+function Product(name,price){
+    this.name = name;
+    this.price = price;
 }
+
+let product = new Product("바나나",1200);
+
+console.log(product);

@@ -118,11 +118,31 @@ console.log(foo); */
 
 /* let foo;
 foo = () => {console.log("1st");}
-foo = () => {console.log("2rd");}
+foo = () => {console.log("2nd");}
 
 foo(); */
 
 /* foo = () => {console.log("1st");}
-function foo() {console.log("2rd");}
+function foo() {console.log("2nd");}
 
 foo(); */
+
+/* let name="dong";
+foo = () => {
+    let name="synn";
+    console.log(this.name);
+} */
+
+/* function foo () {
+    console.log("this.name");
+}
+
+foo(); */
+
+(function () {
+    console.log(this);
+})();
+
+( () => {
+    console.log(this);
+})();
