@@ -3,6 +3,7 @@
 ### 오늘 배운 내용 요약
  > + 표준 내장 함수
  > + 익명 함수와 선언적 함수의 생성 순서
+ > + 객체 기본
 ### 여러줄 요약
 1. 표준 내장 함수
     + 기존에 이어서 진행 [설명](#표준-내장-함수)
@@ -52,9 +53,9 @@
             ```
         + 결과값
 
-            ![1](https://user-images.githubusercontent.com/79895970/116190804-3dc8ba80-a766-11eb-8e03-97c6387ab8e8.PNG)
+            ![1](https://user-images.githubusercontent.com/79895970/116812514-0d2fb900-ab8a-11eb-8ef3-0901e13282b5.PNG)
 
-            1st가 아닌 2rd가 출력된 모습.
+            1st가 아닌 2nd가 출력된 모습.
 
         + 예제2
             ```
@@ -67,8 +68,27 @@
 
             ![4](https://user-images.githubusercontent.com/79895970/116191727-ca27ad00-a767-11eb-9ba4-350646d4e518.PNG)
         
-        익명함수가 선언적 함수를 덮어씀.
+        익명함수가 선언적 함수를 덮어씀.<br>
+        ※함수 이름을 선언 할때에는 이름이 <b>중복</b>되지 않게 설정해야한다
     + 익명함수와 화살표 함수의 차이
+        + 예제
+        ```
+        (function () {
+        console.log(this);
+        })();
+
+        ( () => {
+            console.log(this);
+        })();
+        ```
+        + 결과
+            ![2](https://user-images.githubusercontent.com/79895970/116812954-597bf880-ab8c-11eb-8fed-46cb53ed9b3b.PNG)
+            ![3](https://user-images.githubusercontent.com/79895970/116812956-5a148f00-ab8c-11eb-8302-9c41f3df4ec3.PNG)
+        
+        익명 함수의 this는 전역객체를 호출하였고 <br>화살표 함수는 상위 스코프의 this를 호출 하였다.
+3. 객체 기본
+    + 배열
+        + 기본적인 설명은 3월30일 [배열](#배열)에 기입해두었다.
 ### 오늘 배운 내용 요약
  > + 익명 함수
  > + 선언적 함수
@@ -362,7 +382,7 @@
 
         ![3](https://user-images.githubusercontent.com/79895970/114258203-edc8c480-99ff-11eb-8995-bf0356b7eb4a.PNG)<br>
         + break는 상위 키워드에서 빠져나오는것이기 때문에 if에서 빠져나오는것이 아닌 while을 빠져나온다.
-3. 배열
+#### 3. 배열
     + 기본적인 설명은 3월30일 [배열](#배열)에 기입해두었다.
         + 배열 선언
         ```
