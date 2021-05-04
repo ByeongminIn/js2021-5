@@ -1,4 +1,67 @@
 # 인병민 [201840225]
+## [05월 04일]
+### 오늘 배운 내용 요약
+ > + 객체 기본
+ > + 표준 내장 객체
+### 여러줄 요약
+1. 객체기본
+    + 프로토타입
+        + 생성자 함수로 만든 객체는 프로토타입 공간에 메소드를 지정해서 모든
+        객체가 공유 하도록 함,해당 함수를 생성사 함수로 사용했을 때만 의미가 있음.
+            + 예제
+            ```
+            function Product(name,price){
+            this.name = name;
+            this.price = price;
+            }
+
+            Product.prototype.print = () => {
+                console.log(`${product.name}의 가격은 ${product.price}원 입니다.    `);
+            }
+
+            let product = new Product("바나나",1200);
+
+            product.print();
+            ```
+            + 결과값
+            ![1](https://user-images.githubusercontent.com/79895970/116967393-27ce7300-aced-11eb-81dc-e7e75a9ffb9c.png)
+    + 객체 지향적으로 구성한 객체 배열
+        + 예제
+        ```
+        function Product(name,price){
+        this.name = name;
+        this.price = price;
+        }
+        Product.prototype.print = function() {
+            console.log(`${this.name}의 가격은 ${this.price}원 입니다.`);
+        }
+        let products = [
+            new Product('바나나',1200),
+            new Product('사과',2000),
+            new Product('배',3000),
+            new Product('고구마',700),
+            new Product('감자',600),
+            new Product('수박',5000)
+        ];
+
+        for(let product of products){
+            product.print();
+        }
+        ```
+        + 결과값
+        ![2](https://user-images.githubusercontent.com/79895970/116967833-2d788880-acee-11eb-900e-cf9c1e488ddf.png)
+    + null의 값과 자료형
+        + 예제
+        ```
+        console.log(null);
+        console.log(typeof(null));
+        ```
+        + 결과값
+        ![3](https://user-images.githubusercontent.com/79895970/116968093-c1e2eb00-acee-11eb-9527-2f320bcc81a5.png)
+
+        null의 자료형이 object로 출력되는 모습이다.
+2. 표준 내장 객체
+    + 
 ## [04월 27일]
 ### 오늘 배운 내용 요약
  > + 표준 내장 함수
