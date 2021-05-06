@@ -61,7 +61,148 @@
 
         null의 자료형이 object로 출력되는 모습이다.
 2. 표준 내장 객체
-    + 
+    + 기본 자료형과 객체 자료형의 차이
+        + 예제
+        ```
+        let foo = false;
+        let bar = 123;
+
+        console.log(typeof foo);
+        console.log(typeof bar);
+        ```
+        + 결과값
+        ![1](https://user-images.githubusercontent.com/79895970/117259482-0b673d80-ae89-11eb-97b3-8759020297d2.PNG)
+        typeof연산자로 foo와 bar의 데이터타입을 표시하였다.
+
+        ```
+        let foo = new Boolean(false);
+        let bar = new Number(123);
+
+        console.log(typeof foo);
+        console.log(typeof bar);
+        ```
+        + 결과값
+        ![2](https://user-images.githubusercontent.com/79895970/117260773-60f01a00-ae8a-11eb-8652-850b404f40eb.PNG)
+        new 키워드를 사용하면 object타입으로 표시된다.
+
+        ```
+        let foo = 273;
+
+        //메소드 추가
+        foo.method = function() {
+            return "hello";
+        }
+
+        console.log(foo.method());
+        ```
+        + 결과값
+        ![3](https://user-images.githubusercontent.com/79895970/117261394-0d320080-ae8b-11eb-92e9-b792f86fe045.PNG)
+        기본 자료형은 객체가 아니므로 속성과 메소드 추가가 불가능하다.<br><br>
+        만약 hello를 출력하고싶으면 프로토타입을 사용하여 출력할수있다
+        ```
+        let foo = 273;
+        let bar = 512;
+        //메소드 추가
+        Number.prototype.method = function() {
+            return "hello";
+        }
+
+        console.log(foo.method());
+        console.log(bar.method()); 
+        ```
+        + 결과값
+        ![4](https://user-images.githubusercontent.com/79895970/117262144-e9bb8580-ae8b-11eb-8e24-30749f370fb8.PNG)
+    + Number 객체
+        + 자바스크립트에서 숫자를 표현할 때 사용
+        + Number 객체 생성
+        ```
+        let numberFromLiteral = 273;
+        let numberFromConstructor = new Number(273);
+        ```
+        + Number 객체의 메소드
+            메소드|설명|
+            |:----|:----|
+            toExponential()|숫자를 지수 표시로 나타낸 문자열을 리턴합니다.|
+            toFixed()|숫자를 고정소수점 표시로 나타낸 문자열을 리턴합니다.|
+            toPrecision()|숫자를 길이에 따라 지수 표시 또는 고정소수점 표시로 나타낸 문자열을 리턴합니다.|
+            + toFixed() 메소드를 사용해 소수점 자릿수를 자르는 방법
+            ```
+            let foo = 25.123;
+
+            console.log(foo.toFixed(1));
+            ```
+            + 결과값
+            ![5](https://user-images.githubusercontent.com/79895970/117263558-5b480380-ae8d-11eb-8afe-75aa37b83ec1.PNG)
+            소수점 첫째자리까지 표시되는 모습.
+        + 생성자 함수의 속성
+            + 생성자 함수에 속성과 메소드 추가
+                ```
+                function Constructor(){ }
+                Constructor.foo = 273;
+                Constructor.bar = function () {};
+
+                console.log(Constructor.foo);
+                console.log(Constructor.bar);
+                ```
+                + 결과값
+                ![6](https://user-images.githubusercontent.com/79895970/117265454-381e5380-ae8f-11eb-88cc-f0b09c16077c.PNG)
+            + Number 생성자 함수의 속성
+                속성|설명|
+                |:----|:----|
+                MAX_VALUE|자바스크립트의 숫자가 나타낼 수 있는 최대 숫자|
+                MIN_VALUE|자바스크립트의 숫자가 나타낼 수 있는 최소 숫자|
+                NaN|자바스크립트의 숫자가 나타낼 수 없는 숫자|
+                POSITIVE_INFINITY|양의 무한대 숫자|
+                NEGATIVE_INFINITY|음의 무한대 숫자|
+                + 예제
+                ```
+                let foo = Number.MAX_VALUE;
+                let bar = Number.MAX_VALUE+1;
+                
+                console.log(foo);
+                console.log(bar);
+                ```
+                + 결과값
+                ![7](https://user-images.githubusercontent.com/79895970/117266058-d0b4d380-ae8f-11eb-8098-517dab6ad7a9.PNG)
+                최댓값에 +1이 추가되었지만 oveflow가 되지 않고 최댓값을 출력하는 모습
+        + String 객체
+            + String 객체 생성
+            ```
+            let stringFromLiteral = '안녕하세요';
+            let stringFromConstructor = new String('안녕하세요');
+            ```
+            + 잘못된 String 객체의 메소드 사용
+                ```
+                let foo = "abcdefg";
+
+                foo.toUpperCase();
+                console.log(foo);
+                ```
+                + 결과값
+                ![8](https://user-images.githubusercontent.com/79895970/117267460-3fdef780-ae91-11eb-8fce-0b811caf4f7a.PNG)
+                자기 자신을 변경하지 않고 리턴하는 것뿐이므로 소문자 상태로 출력
+            + 올바른 String 객체의 메소드 사용
+                ```
+                let foo = "abcdefg";
+
+                let bar = foo.toUpperCase();
+                console.log(bar);
+                ```
+                + 결과값
+                ![9](https://user-images.githubusercontent.com/79895970/117267776-977d6300-ae91-11eb-87ef-3aa6ff72efcb.PNG)
+            + indexOf() 메소드
+                + 특정 문자열이 있는지 확인,위치를 리턴함
+                + 문자열이 포함되어 있지 않을 때는 -1을 리턴
+                + 예제
+                    ```
+                    let foo = "좋은 아침입니다.";
+
+                    if (foo.indexOf('아침') >= 0 ){
+                        console.log("좋은 아침이에요...!");
+                    }
+                    ```
+                    + 결과값
+                    ![1](https://user-images.githubusercontent.com/79895970/117268891-bcbea100-ae92-11eb-981a-317ad1d4fcdf.PNG)
 ## [04월 27일]
 ### 오늘 배운 내용 요약
  > + 표준 내장 함수
