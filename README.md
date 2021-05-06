@@ -76,6 +76,7 @@
         + 결과값
         
         ![1](https://user-images.githubusercontent.com/79895970/117259482-0b673d80-ae89-11eb-97b3-8759020297d2.PNG)
+        
         typeof연산자로 foo와 bar의 데이터타입을 표시하였다.
 
         ```
@@ -88,6 +89,7 @@
         + 결과값
         
         ![2](https://user-images.githubusercontent.com/79895970/117260773-60f01a00-ae8a-11eb-8652-850b404f40eb.PNG)
+        
         new 키워드를 사용하면 object타입으로 표시된다.
 
         ```
@@ -103,6 +105,7 @@
         + 결과값
         
         ![3](https://user-images.githubusercontent.com/79895970/117261394-0d320080-ae8b-11eb-92e9-b792f86fe045.PNG)
+        
         기본 자료형은 객체가 아니므로 속성과 메소드 추가가 불가능하다.<br><br>
         만약 hello를 출력하고싶으면 프로토타입을 사용하여 출력할수있다
         ```
@@ -119,6 +122,7 @@
         + 결과값
         
         ![4](https://user-images.githubusercontent.com/79895970/117262144-e9bb8580-ae8b-11eb-8e24-30749f370fb8.PNG)
+        
     + Number 객체
         + 자바스크립트에서 숫자를 표현할 때 사용
         + Number 객체 생성
@@ -141,6 +145,7 @@
             + 결과값
             
             ![5](https://user-images.githubusercontent.com/79895970/117263558-5b480380-ae8d-11eb-8afe-75aa37b83ec1.PNG)
+            
             소수점 첫째자리까지 표시되는 모습.
         + 생성자 함수의 속성
             + 생성자 함수에 속성과 메소드 추가
@@ -155,6 +160,7 @@
                 + 결과값
                 
                 ![6](https://user-images.githubusercontent.com/79895970/117265454-381e5380-ae8f-11eb-88cc-f0b09c16077c.PNG)
+                
             + Number 생성자 함수의 속성
                 속성|설명|
                 |:----|:----|
@@ -174,6 +180,7 @@
                 + 결과값
                 
                 ![7](https://user-images.githubusercontent.com/79895970/117266058-d0b4d380-ae8f-11eb-8098-517dab6ad7a9.PNG)
+                
                 최댓값에 +1이 추가되었지만 oveflow가 되지 않고 최댓값을 출력하는 모습
         + String 객체
             + String 객체 생성
@@ -191,6 +198,7 @@
                 + 결과값
                 
                 ![8](https://user-images.githubusercontent.com/79895970/117267460-3fdef780-ae91-11eb-8fce-0b811caf4f7a.PNG)
+                
                 자기 자신을 변경하지 않고 리턴하는 것뿐이므로 소문자 상태로 출력
             + 올바른 String 객체의 메소드 사용
                 ```
@@ -202,6 +210,7 @@
                 + 결과값
                 
                 ![9](https://user-images.githubusercontent.com/79895970/117267776-977d6300-ae91-11eb-87ef-3aa6ff72efcb.PNG)
+                
             + indexOf() 메소드
                 + 특정 문자열이 있는지 확인,위치를 리턴함
                 + 문자열이 포함되어 있지 않을 때는 -1을 리턴
