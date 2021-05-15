@@ -1,4 +1,123 @@
 # 인병민 [201840225]
+
+## [05월11일]
+ > + 표준 내장 객체
+ > + 예외 처리
+### 여러줄 요약
+1. 표준 내장 객체
+    + Date 객체
+        + 생성 방법
+            생성자 함수|설명|
+            |:----|:----|
+            new Date()|현재 시간으로 Date 객체를 생성합니다.|
+            new Date(유닉스 타임)|유닉스 타임(1970년 1월 1일 00시 00분 00초부터 경화한 밀리초)으로 Date 객체를 생성합니다.|
+            new Date(시간 문자열)|문자열로 Date 객체를 생성합니다.|
+            new Date(<년>,<월-1>,<일>,시간>,<분>,<초>,<밀리초>)|시간요소(년,월-1,일,시간,분,초,밀리초)를 기반으로 Date 객체를 생성합니다.|
+        + 예제
+            + 시간더하기
+                ```
+                let foo = new Date();
+                console.log(foo);
+
+                foo.setFullYear(foo.getFullYear()+1);
+                foo.setMonth(foo.getMonth()+1);
+                foo.setDate(foo.getDate()+1);
+
+                console.log(foo);
+                ```
+            + 결과값
+            ![1](https://user-images.githubusercontent.com/79895970/117764618-c451c180-b267-11eb-9d97-adf82855732d.PNG)
+
+            + 시간 간격 구하기
+                ```
+                let now = new Date();
+                let before = new Date('Dec 9,2020');
+
+                let interval = now.getTime() - before.getTime();
+                interval = Math.floor(interval / (1000*60*60*24));
+
+                console.log(`태어나고 ${interval}일 지났습니다.`);
+                ```
+            + 결과값
+            ![2](https://user-images.githubusercontent.com/79895970/117765016-4fcb5280-b268-11eb-8576-851302af8272.PNG)
+    + Array 객체
+        + 기본 메소드는 이전 배열 설명 사이의 [메소드]( #Array-객체의-메소드)부분에 기입해 두엇습니다.
+        + Array 객체의 배열선언
+            ```
+            let foo= [
+                {
+                    // key: value,
+                    name: "고구마",
+                    price: 1000
+                },
+                {
+                    name: "감자",
+                    price: 500
+                },
+                {
+                    name: "바나나",
+                    price: 1500
+                }];
+            ```
+        + ECMAScript5에서 추가된 Array 객체의 메소드
+            메소드|설명|
+            |:----|:----|
+            for each()|배열의 요소를 하나씩 뽑아 반복을 돌립니다|
+            map()|콜백 함수에서 리턴하는 것을 기반으로 새로운 배열을 만듭니다.|
+            filter()|콜백 함수에서 true를 리턴하는 것으로만 새로운 배열을 만들어 리턴합니다.|
+            + 예제
+                ```
+                let foo = [55,65,400,150,24];
+
+                foo.forEach((item,index) => {
+                    console.log(`${index} - ${item}`);
+                })
+                console.log("=======================");
+                let bar = foo.map((item,index) => {
+                    return item + 10;
+                });
+                console.log(bar);
+                console.log("=======================");
+                let foobar = foo.filter((item,index) => {
+                    return item % 2 == 0;
+                });
+                console.log(foobar);
+                ```
+            + 결과값
+            ![3](https://user-images.githubusercontent.com/79895970/117768834-e5b5ac00-b26d-11eb-960e-c2e227cdb14e.PNG)
+2. 예외 처리
+    + TypeError 기본 예외 처리
+        + 예외 상황 확인:undefined 자료형을 일반적인 객체 또는 함수처럼 다루면 TypeError 예외가 발생
+    + try catch finally 구문
+        + 기본형
+            ```
+            try{
+                // 예외가 발생되면
+            } catch(){
+                // 여기서 실행됩니다.
+            } finally{
+                // 이 구문은 무조건 실행됩니다
+            }
+            ```
+    + 예외 객체
+        + 예외가 발생하면 어떤 예외가 발생했는지 정보를 전달함
+        + catch 구문의 괄호 안의 변수
+        + name 속성과 message 속성이 있음
+        + 기본형
+            ```
+            try{
+
+            } catch (exception){
+
+            }
+            ```
+    + 예외 강제 발생
+        + throw 키워드 사용
+        + throw 키워드 뒤에는 문자열 또는 Error 객체를 입력
+        + 기본형
+            ```
+            throw error;
+            ```
 ## [05월 04일]
 ### 오늘 배운 내용 요약
  > + 객체 기본
@@ -705,6 +824,7 @@
         ```
         console.log( foo.length );
         ```
+    + #### Array 객체의 메소드
         + push 함수
 
             + 배열에 값을 추가하는 함수
