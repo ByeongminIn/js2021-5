@@ -116,7 +116,7 @@
         + throw 키워드 뒤에는 문자열 또는 Error 객체를 입력
         + 기본형
             ```
-            throw error;
+            throw error
             ```
 ## [05월 04일]
 ### 오늘 배운 내용 요약
