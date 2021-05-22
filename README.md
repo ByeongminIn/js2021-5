@@ -152,7 +152,7 @@
         const request = require('request');
         ```
 9. cheerio 모듈
-    + request 모듈로 가져온 웹 페이지는 단순한 HTML 문자열임
+    + request 모듈로 가져온 웹 페이지는 단순한 HTML 문자열임<br>
     &nbsp;여기에서 원하는 정보를 추출해야 단순한 ‘데이터’가 ‘정보’가 됨  파싱
     + cheerio 모듈 : 가져온 웹 페이지의 특정 위치에서 손쉽게 데이터를 추출
     + cheerio 모듈 설치
