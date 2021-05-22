@@ -1,5 +1,179 @@
 # 인병민 [201840225]
 
+## [05월18일]
+ > + Node.js 기본
+
+### 여러줄 요약
+1. 전역변수
+    + 전역 변수,전역 함수, 전역 객체 : 모든 곳에서 사용할 수 있는 것들
+        변수|설명|
+        |:----|:----|
+        __filename|현재 실행 중인 코드의 파일 경로를 나타냅니다.|
+        __dirname|현재 실행 중인 코드의 폴더 경로를 나타냅니다.|
+2. process 객체의 속성과 이벤트
+    + Node.js는 process 전역 객체를 제공
+    + process 객체는 프로세스 정보를 제공하며,제어할 수 있게 하는 객체
+        + process 객체의 속성
+            속성|설명|
+            |:----|:----|
+            env|컴퓨터 환경 정보를 나타냅니다.|
+            version|Node.js 버전을 나타냅니다.|
+            versions|Node.js와 종속된 프로그램 버전을 나타냅니다.   |
+            arch|프로세서의 아키텍처를 나타냅니다.|
+            platform|플랫폼을 나타냅니다.|
+        + process 객체의 메소드
+            메소드|설명|
+            |:----|:----|
+            exit([exitCode=0])|프로그램을 종료합니다.|
+            memoryUsage()|메소리 사용 정보 객체를 리턴합니다.|
+            uptime()|현재 프로그램이 실행된 시간을 리턴합니다.|
+3. process 객체와 이벤트 개요
+    + Node.js의 이벤트 연결 메소드
+        메소드|설명|
+        |:----|:----|
+        on(<이벤트 이름>,<이벤트 핸들러>)|이벤트를 연결합니다.|
+        + Node.js가 제공하는 객체의 이벤트 : <https://nodejs.org/en/docs/>
+    + process 객체의 이벤트
+        이벤트|설명|
+        |:----|:----|
+        exit|프로세스가 종료될 때 발생합니다.|
+        uncaughtException|예외가 일어날 때 발생합니다.|
+        + process 객체 : <https://nodejs.org/dist/latest-v6.x/docs/api/process.html>
+4. os 모듈
+    + os 모듈 사용
+        ```
+        const os = require('os');
+        ```
+    + os 모듈의 메소드
+        메소드|설명|
+        |:----|:----|
+        hostname()|운영체제의 호스트이름을 리턴합니다.|
+        type()|운영체제의 이름을 리턴합니다.|
+        platform()|운영체제의 플랫폼을 리턴합니다.|
+        arch()|운영체제의 아키텍처를 리턴합니다.|
+        release()|운영체제의 버전을 리턴합니다.|
+        uptime()|운영체제가 실행된 시간을 리턴합니다|
+        loadavg()|로드 에버러지 정보를 담은 배열을 리턴합니다.|
+        totalmem()|시스템의 총메모리를 리턴합니다.|
+        freemem()|시스템의 사용 가능한 메모리를 리턴합니다.|
+        cpus()|CPU의 정보를 담은 객체를 리턴합니다.|
+        getNetworkInterfaces()|네트워크 인터페이스의 정보를 담은 배열을리턴합니다.|
+5. url 모듈
+    + url 모듈 사용
+        ```
+        const url = require('url');
+        ```
+    + url 모듈의 메소드
+        메소드|설명|
+        |:----|:----|
+        parse(urlStr[, parseQueryString=false,slashesDenoteHost=false])|URL 문자열을 URL 객체로 변환해 리턴합니다.|
+        format(urlObj)|URL 객체를 URL 문자열로 변환해 리턴합니다.|
+        resolve(from,to)|매개 변수를 조합하여 완전한 URL 문자열을 생성해 리턴합니다.|
+6. File System 모듈
+    + fs 모듈 사용
+        ```
+        const fs = require('fs');
+        ```
+    + 파일 읽기 메소드
+        메소드|설명|
+        |:----|:----|
+        fs.readFileSync(<파일 이름>)|동기적으로 파일을 읽어 들입니다.|
+        fs.readFile(<파일 이름>,<콜백 함수>)|비동기적으로 파일을 읽어 들입니다.|
+    + 동기식 코드
+        ```
+        // 모듈을 추출합니다.
+        const fs = require('fs'); ①
+
+        // 파일을 읽어 들이고 출력합니다.
+        const file = fs.readFileSync('textfile.txt'); ②
+        console.log(file); ③
+        console.log(file.toString()); ④
+        // 현재 단계의 코드를 종료합니다. ⑤
+        ```
+        + 파일의 크기가 굉장히 크다면 ②에서 ③으로 이동할 때 코드가 정지할 가능성이 있음
+        + 문제를 해결을 위해 쓰레드 기능을 사용해야 함
+        + Node.js에는 쓰레드의 기본 이념이 들어 있음
+    + 비동기식 코드
+        ```
+        //모듈을 추출합니다.
+        ① const fs = require('fs'); 
+
+        // 파일을 읽어 들입니다.
+        ② fs.readFile('textfile.txt',(error,file) => { 
+            // 출력합니다.
+            ④ console.log(file); 
+            ⑤ console.log(file.toString()); 
+            ⑥ // 현재 단계의 코드를 종료합니다. 
+        });
+        ③ // 현재 단계의 코드를 종료합니다. 
+        ```
+        + ②에서 ③으로 이동하는 시간이 0초에 가까움
+        + 즉, 코드는 진행하고 Node.js의 뒷단에서 파일을 읽어 들이는 처리가 수행됨
+        + 이러한 뒷단에서 처리가 모두 끝나면, 그때 콜백 함수 부분을 실행함
+        + 콜백 함수의 첫 번째 매개 변수는 오류객체이고 두 번째 매개 변수가 원하는 값임
+    + 비동기 처리의 장점
+        + 웹 서버를 C++ 프로그래밍 언어로 만들면 무척 빠르지만, 개발과 유지 보수는 어려움
+        + 전 세계 웹 서비스 기업(페이스북, 트위터 등)도 C++로 웹 서버를 개발하지 않고 PHP, 자바, 루비, 파이썬, Node.js 등 프로그래밍 언어로 개발
+        + 프로그래밍 언어 자체는 느리지만 큰 의미가 없다고 판단해 개발 속도와 유지 보수성이 좋은 프로그래밍 언어를 사용
+        + 자바스크립트 프로그래밍 언어는 C++, 자바보다 느리지만 Node.js를 사용하면 손쉽게 비동기 처리를 구현하여 빠른 처리가 가능
+    + 파일 쓰기 메소드
+        메소드|설명|
+        |:----|:----|
+        fs.writeFileSync(<파일 이름>,<문자열>)|동기적으로 파일을 씁니다.|
+        fs.writeFile(<파일 이름>,<문자열>,<콜백함수>)|비동기적으로 파일을 씁니다.|
+    + 파일 처리와 예외 처리
+         + 동기 코드 예외처리 : try catch 구문
+         + 비동기 코드 예외처리 : 콜백함수의 첫 번째 매개 변수 error를 활용
+7. 노드 패키지 매니저
+    + 과거의 프로그래밍 언어들은 외부 모듈 설치가 어려웠음
+    + 현재는 ‘패키지 매니저’ 모듈 관리 프로그램을 사용해 모듈을 쉽게 설치하고 활용 가능함
+    + Node.js는 npm(Node.js Package Manager) 패키지 매니저를 사용
+    + npm을 이용한 외부 모듈 설치
+        ```
+        > npm install <모듈 이름>
+        예> npm install express
+        ```
+    + 명령어 뒤에 @ 기호를 사용하면 원하는 버전을 설치
+        ```
+        > npm install <모듈 이름>@<버전>
+        예> npm install express@4
+        예> npm install express@4.2
+        예> npm install express@4.2.7
+        ```
+8. request 모듈
+    + 웹 요청을 쉽게 만들어 주는 모듈로 외부 모듈임
+    + 설치
+        ```
+        > npm install request
+        ```
+    + request 모듈 추출
+        ```
+        // 모듈을 추출합니다.
+        const request = require('request');
+        ```
+9. cheerio 모듈
+    + request 모듈로 가져온 웹 페이지는 단순한 HTML 문자열임
+    &nbsp;여기에서 원하는 정보를 추출해야 단순한 ‘데이터’가 ‘정보’가 됨  파싱
+    + cheerio 모듈 : 가져온 웹 페이지의 특정 위치에서 손쉽게 데이터를 추출
+    + cheerio 모듈 설치
+        ```
+        > npm install cheerio
+        ```
+    + cheerio 모듈 추출
+        ```
+        // 모듈을 추출합니다.
+        const cheerio = require('cheerio');
+        ```
+10. async 모듈
+    + 비동기적으로 구성되므로 실행 순서를 정의하기가 어렵고, 들여쓰기도 많다. 이 문제를 어느 정도 해결해 줄 수 있는 모듈
+    + async 모듈 설치
+        ```
+        > npm install async
+        ```
+    + async 모듈 추출
+        ```
+        const async = require('async');
+        ``` 
 ## [05월11일]
  > + 표준 내장 객체
  > + 예외 처리
