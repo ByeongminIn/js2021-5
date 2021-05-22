@@ -200,6 +200,7 @@
                 console.log(foo);
                 ```
             + 결과값
+            
             ![1](https://user-images.githubusercontent.com/79895970/117764618-c451c180-b267-11eb-9d97-adf82855732d.PNG)
 
             + 시간 간격 구하기
@@ -213,6 +214,7 @@
                 console.log(`태어나고 ${interval}일 지났습니다.`);
                 ```
             + 결과값
+            
             ![2](https://user-images.githubusercontent.com/79895970/117765016-4fcb5280-b268-11eb-8576-851302af8272.PNG)
     + Array 객체
         + 기본 메소드는 이전 배열 설명 사이의 [메소드]( #Array-객체의-메소드)부분에 기입해 두엇습니다.
@@ -258,6 +260,7 @@
                 console.log(foobar);
                 ```
             + 결과값
+            
             ![3](https://user-images.githubusercontent.com/79895970/117768834-e5b5ac00-b26d-11eb-960e-c2e227cdb14e.PNG)
 2. 예외 처리
     + TypeError 기본 예외 처리
